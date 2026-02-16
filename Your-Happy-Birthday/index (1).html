@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Happy Birthday</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        canvas {
+            width: 100%;
+            height: auto;
+            touch-action: manipulation;
+        }
+        @media (orientation: landscape) {
+            canvas {
+                aspect-ratio: 16 / 9;
+            }
+        }
+        @media (orientation: portrait) {
+            canvas {
+                aspect-ratio: 9 / 16;
+            }
+        }
+    </style>
+</head>
+<body>
+    <canvas id="birthdayCanvas"></canvas>
+    <script>
+        // Event listeners for touch support on mobile devices
+        const canvas = document.getElementById('birthdayCanvas');
+        canvas.addEventListener('touchstart', handleTouch, false);
+        canvas.addEventListener('touchmove', handleTouch, false);
+        canvas.addEventListener('touchend', handleTouch, false);
+
+        function handleTouch(event) {
+            event.preventDefault();
+            // Handle the touch events
+        }
+
+        // Initialize canvas
+        function initCanvas() {
+            const ctx = canvas.getContext('2d');
+            adjustCanvasSize();
+            // Perform additional drawing logic here
+        }
+
+        // Adjust canvas dimensions for responsiveness
+        function adjustCanvasSize() {
+            const { width, height } = canvas.getBoundingClientRect();
+            canvas.width = width;
+            canvas.height = height;
+        }
+
+        window.addEventListener('resize', adjustCanvasSize);
+        initCanvas();
+    </script>
+</body>
+</html>
